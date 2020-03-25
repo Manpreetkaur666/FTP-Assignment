@@ -1,0 +1,43 @@
+﻿<Properties StartupConfiguration="{B731651A-4F90-47FC-8E1E-8122A43FAD5F}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Content/Data/students.xml">
+    <Files>
+      <File FileName="Models/Constants.cs" Line="6" Column="6" />
+      <File FileName="Models/Utilities/FTP.cs" />
+      <File FileName="Models/Imaging.cs" Line="18" Column="33" />
+      <File FileName="Models/Student.cs" Line="33" Column="46" />
+      <File FileName="Program.cs" />
+      <File FileName="Content/Data/info.csv" Line="2" Column="13672" />
+      <File FileName="../../Desktop/MyImage.jpg" />
+      <File FileName="Content/Images/MyImage.jpg" />
+      <File FileName="Content/Data/students.csv" Line="1" Column="1" />
+      <File FileName="Content/Data/students.json" Line="1" Column="1" />
+      <File FileName="Content/Data/students.xml" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CSV" expanded="True">
+            <Node name="CSV" expanded="True">
+              <Node name="Content" expanded="True">
+                <Node name="Data" expanded="True">
+                  <Node name="students.xml" selected="True" />
+                </Node>
+                <Node name="Images" expanded="True" />
+              </Node>
+              <Node name="Models" expanded="True">
+                <Node name="Utilities" expanded="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.CSV PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
