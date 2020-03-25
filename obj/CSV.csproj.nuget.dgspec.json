@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/manpreetkaur/Downloads/CSV 2/CSV.csproj": {}
+    "/Users/manpreetkaur/Downloads/FTP/CSV.csproj": {}
   },
   "projects": {
-    "/Users/manpreetkaur/Downloads/CSV 2/CSV.csproj": {
+    "/Users/manpreetkaur/Downloads/FTP/CSV.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/manpreetkaur/Downloads/CSV 2/CSV.csproj",
+        "projectUniqueName": "/Users/manpreetkaur/Downloads/FTP/CSV.csproj",
         "projectName": "CSV",
-        "projectPath": "/Users/manpreetkaur/Downloads/CSV 2/CSV.csproj",
+        "projectPath": "/Users/manpreetkaur/Downloads/FTP/CSV.csproj",
         "packagesPath": "/Users/manpreetkaur/.nuget/packages/",
-        "outputPath": "/Users/manpreetkaur/Downloads/CSV 2/obj/",
+        "outputPath": "/Users/manpreetkaur/Downloads/FTP/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

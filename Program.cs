@@ -6,7 +6,8 @@ using System.Text;
 using CSV.Models;
 using CSV.Models.Utilities;
 using System.Xml.Serialization;
-
+using System.Net;
+using System.Threading;
 
 namespace CSV
 {
@@ -163,52 +164,46 @@ namespace CSV
 
             return;
 
-            //string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+           
+        }
 
-            //string exePath = Environment.CurrentDirectory;
-            //string dataFolder = $"{exePath}\\..\\..\\..\\Content\\Data";
-            //string imagesFolder = $"{exePath}\\..\\..\\..\\Content\\Images";
+        public static string UploadFile(string sourceFilePath, string destinationFileUrl, string username = Constants.FTP.UserName, string password = Constants.FTP.Password)
+        {
+            string output;
 
-            //string filePath = $@"{Constants.Locations.DataFolder}\{Constants.Locations.InfoFile}";
-            //string fileContents;
+            // Get the object used to communicate with the server.
+            FtpWebRequest request = (FtpWebRequest)WebRequest.Create(destinationFileUrl);
 
-            //using (StreamReader stream = new StreamReader(filePath))
-            //{
-            //    fileContents = stream.ReadToEnd();
-            //}
+            request.Method = WebRequestMethods.Ftp.UploadFile;
 
-            //List<string> entries = new List<string>();
+            // This example assumes the FTP site uses anonymous logon.
+            request.Credentials = new NetworkCredential(username, password);
 
-            //entries = fileContents.Split("\r\n", StringSplitOptions.RemoveEmptyEntries).ToList();
+            // Copy the contents of the file to the request stream.
+            byte[] fileContents = GetStreamBytes(sourceFilePath);
 
-            //Student student = new Student();
-            //student.FromCSV(entries[1]);
+            //Get the length or size of the file
+            request.ContentLength = fileContents.Length;
 
+            //Write the file to the stream on the server
+            using (Stream requestStream = request.GetRequestStream())
+            {
+                requestStream.Write(fileContents, 0, fileContents.Length);
+            }
 
+            //Send the request
+            using (FtpWebResponse response = (FtpWebResponse)request.GetResponse())
+            {
+                output = $"Upload File Complete, status {response.StatusDescription}";
+            }
+            Thread.Sleep(Constants.FTP.OperationPauseTime);
 
-            //string[] data = entries[1].Split(",", StringSplitOptions.None);
+            return (output);
+        }
 
-            //Student student = new Student();
-            //student.StudentId = data[0];
-            //student.FirstName = data[1];
-            //student.LastName = data[2];
-            //student.DateOfBirth = data[3];
-            //student.ImageData = data[4];
-
-            //Console.WriteLine(student.ToCSV());
-            //Console.WriteLine(student.ToString());
-
-
-
-            //string imagefilePath = $"{Constants.Locations.ImagesFolder}\\{Constants.Locations.ImageFile}";
-            //Image image = Image.FromFile(imagefilePath);
-            //string base64Image = Imaging.ImageToBase64(image, ImageFormat.Jpeg);
-            //student.ImageData = base64Image;
-
-            //string newfilePath = $"{Constants.Locations.DesktopPath}\\{student.ToString()}.jpg";
-            //FileInfo newfileinfo = new FileInfo(newfilePath);
-            //Image studentImage = Imaging.Base64ToImage(student.ImageData);
-            //studentImage.Save(newfileinfo.FullName, ImageFormat.Jpeg);
+        private static byte[] GetStreamBytes(string sourceFilePath)
+        {
+            throw new NotImplementedException();
         }
 
     }
